@@ -1,23 +1,30 @@
-<!DOCTYPE html>
-<style>
-  /* netnet default bg */
-  body {
-    margin: 0;
-    background-image: linear-gradient(#515199a8 2px, transparent 1px),
-      linear-gradient(90deg, #515199a8 2px, transparent 1px);
-    background-size: 50px 50px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-  }
+<body style="background-color: AntiqueWhite; color: black;">
+  <center>
+    <h1>DON'T CLICK THE BUTTON</h1>
+    <button id="myButton" style="background-color: red; padding: 20px 40px; font-size: 16px;">Click Me</button>
+  </center>
+  
+<script>
+document.getElementById('myButton').addEventListener('click', function() 
+{
+    const button = document.getElementById('myButton');
+    const title = document.getElementById('title');
+    const randomButtonColor = getRandomColor();
+    const randomBackgroundColor = getRandomColor();
+    const randomTextColor = getRandomColor();
+    button.style.backgroundColor = randomButtonColor;
+    document.body.style.backgroundColor = randomBackgroundColor;
+    title.style.color = randomTextColor;
+});
 
-  body::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(0deg, #c76ebca8, #515199a8);
-  }
-</style>
-    
+function getRandomColor() 
+{
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++)
+    {color += letters[Math.floor(Math.random() * 16)]; }
+    return color;
+}
+</script>
+
+</body>
